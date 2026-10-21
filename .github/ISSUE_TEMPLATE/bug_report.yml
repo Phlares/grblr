@@ -1,0 +1,53 @@
+name: Bug report
+description: Something does not work as documented.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not attach or link audio, transcripts or a corpus made from a voice you do not have rights to, and do not name the source of a private corpus. See the content rule in CONTRIBUTING.md.
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The exact commands. Replace private paths with placeholders.
+      placeholder: |
+        1. export GRBLR_DB=./my-corpus.db
+        2. grblr render "hello world" --seed 3
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+      description: Include the full error or stack trace.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Release tag or commit, or the output of `uv pip show grblr`.
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Platform
+      description: OS, Python version, and CPU or GPU (CUDA version).
+  - type: checkboxes
+    id: rule
+    attributes:
+      label: Content rule
+      options:
+        - label: This report contains no audio, transcripts or source names from a voice I do not have rights to.
+          required: true
+        - label: I said in the text whether I used an AI tool to write this (see AI_POLICY.md).
+          required: true

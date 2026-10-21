@@ -1,0 +1,8 @@
+{
+  "typeCheckingMode": "standard",
+  "pythonVersion": "3.11",
+  "pythonPlatform": "Linux",
+  "enableTypeIgnoreComments": false,
+  "reportUnnecessaryTypeIgnoreComment": "error",
+  "exclude": ["_ToRemove", "**/node_modules", "**/__pycache__", "**/.*"]
+}

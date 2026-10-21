@@ -1,0 +1,49 @@
+name: CI
+
+# From the Phlares/workflows copier template (product tier). Change the
+# structure with `copier update`; Dependabot moves the pins. No path filter:
+# a required check that skips never reports and blocks the PR.
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    uses: Phlares/workflows/.github/workflows/check.yml@b44ebcecb67110b645c0670e19611e77fbfc442b # v1.8.0
+    with:
+      name: lint
+      python-version: "3.11"
+      uv-version: 0.13.1
+      prek-cache: true
+      timeout-minutes: 5
+      install: uv sync --locked --only-group lint
+      run: uv run --no-sync prek run --all-files --hook-stage manual --show-diff-on-failure
+
+  test-py:
+    uses: Phlares/workflows/.github/workflows/check.yml@b44ebcecb67110b645c0670e19611e77fbfc442b # v1.8.0
+    with:
+      name: pytest
+      runs-on: ubuntu-latest
+      python-version: "3.11"
+      uv-version: 0.13.1
+      timeout-minutes: 5
+      install: uv sync --locked --group test
+      run: uv run --no-sync pytest -q
+
+  typecheck:
+    uses: Phlares/workflows/.github/workflows/check.yml@b44ebcecb67110b645c0670e19611e77fbfc442b # v1.8.0
+    with:
+      name: typecheck
+      python-version: "3.11"
+      uv-version: 0.13.1
+      timeout-minutes: 5
+      install: uv sync --locked --group typecheck
+      run: uv run --no-sync pyright

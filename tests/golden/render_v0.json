@@ -1,0 +1,215 @@
+{
+ "how hot is your word": {
+  "pcm_sha256": "947978a6b114a4b89e202ae7a39eb8d30942e8f43b97aeb6dcf92d74d01ef6b6",
+  "total_ms": 2567,
+  "words": [
+   {
+    "dur_ms": 340,
+    "onset_ms": 0,
+    "text": "how"
+   },
+   {
+    "dur_ms": 340,
+    "onset_ms": 460,
+    "text": "hot"
+   },
+   {
+    "dur_ms": 456,
+    "onset_ms": 920,
+    "text": "is"
+   },
+   {
+    "dur_ms": 340,
+    "onset_ms": 1496,
+    "text": "your"
+   },
+   {
+    "dur_ms": 361,
+    "onset_ms": 1956,
+    "text": "word"
+   }
+  ]
+ },
+ "i have this one": {
+  "pcm_sha256": "d06bd688be09516126da79cb2a4b2f69c5da97153e6522704fe4110b84bf3142",
+  "total_ms": 1970,
+  "words": [
+   {
+    "dur_ms": 340,
+    "onset_ms": 0,
+    "text": "i"
+   },
+   {
+    "dur_ms": 340,
+    "onset_ms": 460,
+    "text": "have"
+   },
+   {
+    "dur_ms": 340,
+    "onset_ms": 920,
+    "text": "this"
+   },
+   {
+    "dur_ms": 340,
+    "onset_ms": 1380,
+    "text": "one"
+   }
+  ]
+ },
+ "the other one said what": {
+  "pcm_sha256": "e0f1a4237476b4147760b9e5f397ab0bf233532cc7f9a5e25cce54eb522066c9",
+  "total_ms": 2704,
+  "words": [
+   {
+    "dur_ms": 361,
+    "onset_ms": 0,
+    "text": "the"
+   },
+   {
+    "dur_ms": 456,
+    "onset_ms": 481,
+    "text": "other"
+   },
+   {
+    "dur_ms": 456,
+    "onset_ms": 1057,
+    "text": "one"
+   },
+   {
+    "dur_ms": 340,
+    "onset_ms": 1633,
+    "text": "said"
+   },
+   {
+    "dur_ms": 361,
+    "onset_ms": 2093,
+    "text": "what"
+   }
+  ]
+ },
+ "the word is out": {
+  "pcm_sha256": "eb72367322f8dea20c0e49b0bed0dbe68b7f65b0189064552c93246e2a48ec70",
+  "total_ms": 2012,
+  "words": [
+   {
+    "dur_ms": 361,
+    "onset_ms": 0,
+    "text": "the"
+   },
+   {
+    "dur_ms": 361,
+    "onset_ms": 481,
+    "text": "word"
+   },
+   {
+    "dur_ms": 340,
+    "onset_ms": 962,
+    "text": "is"
+   },
+   {
+    "dur_ms": 340,
+    "onset_ms": 1422,
+    "text": "out"
+   }
+  ]
+ },
+ "they are all up there": {
+  "pcm_sha256": "b5911d5470636a30f8b9c4b8d108763fb801edaa3500062a7420b2ca31aeb1fe",
+  "total_ms": 2567,
+  "words": [
+   {
+    "dur_ms": 340,
+    "onset_ms": 0,
+    "text": "they"
+   },
+   {
+    "dur_ms": 340,
+    "onset_ms": 460,
+    "text": "are"
+   },
+   {
+    "dur_ms": 340,
+    "onset_ms": 920,
+    "text": "all"
+   },
+   {
+    "dur_ms": 361,
+    "onset_ms": 1380,
+    "text": "up"
+   },
+   {
+    "dur_ms": 456,
+    "onset_ms": 1861,
+    "text": "there"
+   }
+  ]
+ },
+ "we were here": {
+  "pcm_sha256": "27de74d1c5405631fcb1ae36e343f470560722a143b5a23803867c3fa429fa13",
+  "total_ms": 1552,
+  "words": [
+   {
+    "dur_ms": 340,
+    "onset_ms": 0,
+    "text": "we"
+   },
+   {
+    "dur_ms": 361,
+    "onset_ms": 460,
+    "text": "were"
+   },
+   {
+    "dur_ms": 361,
+    "onset_ms": 941,
+    "text": "here"
+   }
+  ]
+ },
+ "what was said": {
+  "pcm_sha256": "f08319a189f38f2484f17715ec1fd99c76e94536839e6eb03830dc9d2158f0cd",
+  "total_ms": 1647,
+  "words": [
+   {
+    "dur_ms": 361,
+    "onset_ms": 0,
+    "text": "what"
+   },
+   {
+    "dur_ms": 456,
+    "onset_ms": 481,
+    "text": "was"
+   },
+   {
+    "dur_ms": 340,
+    "onset_ms": 1057,
+    "text": "said"
+   }
+  ]
+ },
+ "you can use it": {
+  "pcm_sha256": "cbe8509736ef2dfcb8bd030447151728d0659fc31d2fc9a873fd9d0390c9b9bc",
+  "total_ms": 2107,
+  "words": [
+   {
+    "dur_ms": 361,
+    "onset_ms": 0,
+    "text": "you"
+   },
+   {
+    "dur_ms": 340,
+    "onset_ms": 481,
+    "text": "can"
+   },
+   {
+    "dur_ms": 456,
+    "onset_ms": 941,
+    "text": "use"
+   },
+   {
+    "dur_ms": 340,
+    "onset_ms": 1517,
+    "text": "it"
+   }
+  ]
+ }
+}

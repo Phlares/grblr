@@ -1,0 +1,56 @@
+# Commit hook and CI lint job (ci.yml `lint`) run this one file with prek.
+# Install once per checkout: prek install --allow-missing-config
+# (the flag keeps commits working on branches older than this file).
+# Every rev is a commit hash; Dependabot moves it with its `# frozen:` tag.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
+    hooks:
+      # copier update writes conflicts as inline markers outside a git merge.
+      - id: check-merge-conflict
+        args: [--assume-in-merge]
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: 83d9cd684c87d95d656c1458ef04895a7f1cbd8e  # frozen: v8.30.1
+    hooks:
+      - id: gitleaks
+      # The lint job runs the manual stage: CI has nothing staged, so the
+      # entry above scans nothing there. A depth-1 checkout scans HEAD's tree.
+      - id: gitleaks
+        alias: gitleaks-history
+        entry: gitleaks git --redact --verbose
+        stages: [manual]
+  # Generic leaks gitleaks does not look for. Loopback and wildcard
+  # addresses pass. uv.lock carries only package names, versions and hashes.
+  - repo: local
+    hooks:
+      - id: no-personal-paths
+        name: no personal paths
+        language: pygrep
+        entry: '(?i)\b[a-z]:\\\\?[a-z]|/(?:home|users)/[a-z]'
+        types: [text]
+        exclude: ^uv\.lock$
+      - id: no-ip-addresses
+        name: no IP addresses
+        language: pygrep
+        entry: '\b(?!127\.|0\.0\.0\.0\b)(?:\d{1,3}\.){3}\d{1,3}\b'
+        types: [text]
+        exclude: ^uv\.lock$
+      - id: no-email-addresses
+        name: no email addresses
+        language: pygrep
+        entry: '\b[\w.+-]+@(?!users\.noreply\.github\.com\b)[\w-]+(?:\.[\w-]+)*\.[a-zA-Z]{2,}\b'
+        types: [text]
+        exclude: ^uv\.lock$
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: 38bfb07c0c64c304f47eb52090f8288150c77730  # frozen: v0.17.1
+    hooks:
+      - id: ruff-check
+        args: [--fix]
+      - id: ruff-format
+        # The upstream hook also formats code blocks in Markdown files.
+        types_or: [python, pyi, jupyter]
+  # Suppression comments stay at the .suppressions baseline (0 when absent).
+  - repo: https://github.com/Phlares/workflows
+    rev: b44ebcecb67110b645c0670e19611e77fbfc442b  # frozen: v1.8.0
+    hooks:
+      - id: suppressions

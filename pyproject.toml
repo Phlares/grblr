@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "grblr"
+version = "0.1.0"
+description = "Word-level concatenative speech from a corpus of voice clips"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE", "NOTICE", "src/grblr/data/LICENSE.cmudict"]
+authors = [{ name = "Phlares" }]
+requires-python = ">=3.11"
+dependencies = [
+    "numpy>=1.24",
+    "soundfile>=0.12",
+]
+
+[project.urls]
+Repository = "https://github.com/Phlares/grblr"
+
+[project.scripts]
+grblr = "grblr.cli:main"
+
+# One group per CI job (ci.yml). uv.lock pins them with hashes; run `uv lock`
+# after any change here.
+[dependency-groups]
+lint = ["prek"]
+test = ["pytest"]
+typecheck = ["pyright", "pytest"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+grblr = ["data/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,12 @@
+grblr
+Copyright (c) 2026 Phlares
+
+This project is licensed under the MIT License (see LICENSE).
+
+It includes the third-party work below, which keeps its own license.
+
+CMU Pronouncing Dictionary (src/grblr/data/cmudict.dict)
+  Copyright (C) 1993-2015 Carnegie Mellon University.
+  BSD 2-Clause License. Full text: src/grblr/data/LICENSE.cmudict.
+  grblr reads the dictionary file directly. It does not use the GPL
+  `cmudict` Python package.
