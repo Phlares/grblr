@@ -17,7 +17,7 @@ concurrency:
 
 jobs:
   lint:
-    uses: Phlares/workflows/.github/workflows/check.yml@b44ebcecb67110b645c0670e19611e77fbfc442b # v1.8.0
+    uses: Phlares/workflows/.github/workflows/check.yml@b980c7e820f2a22b596c63f4b00f412f42e5369a # v1.9.0
     with:
       name: lint
       python-version: "3.11"
@@ -28,7 +28,7 @@ jobs:
       run: uv run --no-sync prek run --all-files --hook-stage manual --show-diff-on-failure
 
   test-py:
-    uses: Phlares/workflows/.github/workflows/check.yml@b44ebcecb67110b645c0670e19611e77fbfc442b # v1.8.0
+    uses: Phlares/workflows/.github/workflows/check.yml@b980c7e820f2a22b596c63f4b00f412f42e5369a # v1.9.0
     with:
       name: pytest
       runs-on: ubuntu-latest
@@ -39,7 +39,7 @@ jobs:
       run: uv run --no-sync pytest -q
 
   typecheck:
-    uses: Phlares/workflows/.github/workflows/check.yml@b44ebcecb67110b645c0670e19611e77fbfc442b # v1.8.0
+    uses: Phlares/workflows/.github/workflows/check.yml@b980c7e820f2a22b596c63f4b00f412f42e5369a # v1.9.0
     with:
       name: typecheck
       python-version: "3.11"
@@ -47,3 +47,14 @@ jobs:
       timeout-minutes: 5
       install: uv sync --locked --group typecheck
       run: uv run --no-sync pyright
+
+  # Runtime dependencies only: what the project ships.
+  licenses:
+    uses: Phlares/workflows/.github/workflows/check.yml@b980c7e820f2a22b596c63f4b00f412f42e5369a # v1.9.0
+    with:
+      name: licenses
+      python-version: "3.11"
+      uv-version: 0.13.1
+      timeout-minutes: 5
+      install: uv sync --locked --no-dev
+      run: uv run --no-sync python .wf/.github/scripts/licenses.py
